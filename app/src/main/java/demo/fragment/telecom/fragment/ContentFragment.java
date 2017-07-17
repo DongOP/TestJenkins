@@ -1,6 +1,7 @@
 package demo.fragment.telecom.fragment;
 
 import android.app.Fragment;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class ContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
         tvDetail = (TextView) rootView.findViewById(R.id.item_detail);
+        tvDetail.setText(getVersionName());
 
         return rootView;
     }
@@ -44,5 +46,18 @@ public class ContentFragment extends Fragment {
         } else {
             tvDetail.setText("Item ...");
         }
+    }
+
+
+    private String getVersionName() {
+
+        try {
+            String verName = getActivity().getPackageManager( ).getPackageInfo(getActivity( ).getPackageName( ) , 0 ).versionName;
+            // 获取渠道号
+            return verName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }
