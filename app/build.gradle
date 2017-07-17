@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 
 // 默认版本号
-ext.appVersionCode = 20000
+ext.appVersionCode = 20100
 // 默认版本名
-ext.appVersionName = "2.00.00"
+ext.appVersionName = "2.01.00"
 // 默认正式包后缀名
 ext.appSuffixName = "_release.apk"
 // 默认apk输出路径
