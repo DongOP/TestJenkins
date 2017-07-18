@@ -70,7 +70,7 @@ android {
         // 通用
         remoter {}
         // 01
-        no_pc_mang {
+        no_pc {
             versionCode appVersionCode + 1
             versionName getAppVersion()
         }
@@ -91,7 +91,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             //开始输出,自定义输出路径      "_V" +appVersionName +
-            output.outputFile = new File(appReleaseDir + getDate() + "/" + variant.productFlavors[0].name + appSuffixName)
+            output.outputFile = new File(appReleaseDir + "develop" + "/" + getDate() + "/" + variant.productFlavors[0].name + appSuffixName)
         }
     }
 }
