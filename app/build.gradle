@@ -86,7 +86,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             //开始输出,自定义输出路径      "_V" +appVersionName +
-            output.outputFile = new File(appReleaseDir + getDate() + "/" + variant.productFlavors[0].name + appSuffixName)
+            output.outputFile = new File(appReleaseDir + "master" + "/"+ getDate() + "/" + variant.productFlavors[0].name + appSuffixName)
         }
     }
 }
