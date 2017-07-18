@@ -68,14 +68,19 @@ android {
 
     productFlavors {
         // 通用
-        master {}
-        // 01 二维码定制
-        aluratek {
+        remoter {}
+        // 01
+        no_pc_mang {
             versionCode appVersionCode + 1
             versionName getAppVersion()
         }
+        // 01 二维码定制
+//        aluratek {
+//            versionCode appVersionCode + 1
+//            versionName getAppVersion()
+//        }
         // 应用宝
-        应用宝{}
+//        应用宝{}
     }
 
 //    productFlavors.all { flavor ->
