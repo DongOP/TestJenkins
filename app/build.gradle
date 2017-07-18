@@ -39,15 +39,6 @@ android {
 //        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
     }
 
-    signingConfigs {
-        release {
-            storeFile file("keystore")
-            storePassword "yg20161024"
-            keyAlias "Album"
-            keyPassword "yg20161024"
-        }
-    }
-
     // 禁止Lint出错导致打包异常终止
     lintOptions {
         disable 'MissingTranslation', 'ExtraTranslation'
@@ -55,11 +46,23 @@ android {
         ignoreWarnings true
     }
 
+    signingConfigs {
+        signConfig {
+            storeFile file("keystore")
+            storePassword "yg20161024"
+            keyAlias "Album"
+            keyPassword "yg20161024"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release // 打包命令行：gradlew assembleRelease
+            signingConfig signingConfigs.signConfig // 配置release包的签名
+        }
+        debug{
+            signingConfig signingConfigs.signConfig // 配置debug包的签名
         }
     }
 
@@ -103,7 +106,7 @@ def getDate() {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
