@@ -48,7 +48,7 @@ android {
 
     signingConfigs {
         signConfig {
-            storeFile file("keystore")
+            storeFile file("F:\\MyDemo\\TestJenkins\\keystore")
             storePassword "yg20161024"
             keyAlias "Album"
             keyPassword "yg20161024"
