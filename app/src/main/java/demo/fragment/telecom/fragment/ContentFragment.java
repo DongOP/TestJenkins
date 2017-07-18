@@ -24,7 +24,7 @@ public class ContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
         tvDetail = (TextView) rootView.findViewById(R.id.item_detail);
-        tvDetail.setText(getVersionName());
+        tvDetail.setText("develop分支，版本号:" + getVersionName());
 
         return rootView;
     }
