@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import demo.fragment.telecom.R;
+import demo.fragment.telecom.util.Utils;
 
 /**
  * Created by Dong on 2017/4/1 0001.
@@ -24,7 +26,7 @@ public class ContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
         tvDetail = (TextView) rootView.findViewById(R.id.item_detail);
-        tvDetail.setText("develop分支，版本号:" + getVersionName());
+        tvDetail.setText("develop分支，版本号:" + getVersionName() + ", DEBUG: " + Utils.isDEBUG);
 
         return rootView;
     }
@@ -33,6 +35,9 @@ public class ContentFragment extends Fragment {
 
         if (position == 1) {
             tvDetail.setText("Item 1");
+            if (Utils.isDEBUG) {
+                Toast.makeText(getActivity(), "debug模式", Toast.LENGTH_SHORT).show();
+            }
         } else if (position == 2) {
             tvDetail.setText("Item 2");
         } else if (position == 3) {

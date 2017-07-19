@@ -7,7 +7,7 @@ ext.appVersionName = "1.03.00"
 // 默认正式包后缀名
 ext.appSuffixName = "_release.apk"
 // 默认apk输出路径
-ext.appReleaseDir = "H:\\Jenkins\\app"
+ext.appReleaseDir = "D:\\Jenkins\\app\\"
 
 def loadProperties() {
     def proFile = file("../local.properties")
@@ -91,7 +91,8 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             //开始输出,自定义输出路径      "_V" +appVersionName +
-            output.outputFile = new File(appReleaseDir + "develop" + "/" + getDate() + "/" + variant.productFlavors[0].name + appSuffixName)
+//            output.outputFile = new File(appReleaseDir + "develop" + "/" + getDate() + "/" + variant.productFlavors[0].name + appSuffixName)
+            output.outputFile = new File(appReleaseDir + "TestJenkins/" + variant.productFlavors[0].name + "/" + getDate() + "/"  + "TestJenkins_" + appVersionName + appSuffixName)
         }
     }
 }
